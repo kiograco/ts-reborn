@@ -1,5 +1,4 @@
-import React, { useEffect} from 'react'
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import React, { useEffect} from 'react';
 import AddIcon from "@material-ui/icons/Add";
 import "./Sidebar.css";
 import SidebarChannel from '../SidebarChannel/SidebarChannel';
@@ -14,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../Service/UserSlice'
 import db, { auth } from '../../firebase/firebase';
 import {selectChannels , setChannels} from '../../Service/AppSlice';
+import logo from '../../img/ghost.png';
 
 function Sidebar() {
     const user = useSelector(selectUser);
@@ -21,7 +21,7 @@ function Sidebar() {
     const dispatch = useDispatch();
     
     useEffect(() => {
-        db.collection('channels').onSnapshot((snapshot) =>
+        db.collection('channels').orderBy('channelName','asc').onSnapshot((snapshot) =>
             dispatch(setChannels(
                 snapshot.docs.map(doc => ({
                     id: doc.id,
@@ -43,20 +43,20 @@ function Sidebar() {
     return (
         <div className='sidebar'>
             <div className='sidebar-top'>
-                <h3>programa</h3>
-                <ExpandMoreIcon />
+                <h2>ts reborn</h2>
+                <img className='logo-sidebar' src={logo}/>
             </div>
-
+            
             <div className='sidebar-channels'>
                 <div className='sidebar-channelsHeader'>
                     <div className='siderbar-header'>
-                        <ExpandMoreIcon />
-                        <h4>Text channels</h4>
+                        <h4>channels</h4>
                     </div>
 
                     <AddIcon onClick={()=>handleAddChannel()} className='sidebar-addChannel' />
                 </div>
-                <div className='sidebar-addChannel'>
+            </div>
+            <div className='sidebar-addChannel'>
                     {channels.map(({ id, channel }) => (
                         <SidebarChannel 
                         key={id} 
@@ -64,9 +64,8 @@ function Sidebar() {
                         channelName={channel.channelName} />
                     ))}
                 </div>
-            </div>
 
-            <div className='sidebar-voice'>
+            {/* <div className='sidebar-voice'>
                 <SignalCellularAltIcon
                     className="sidebar-voiceIcon"
                     fontSize="large"
@@ -79,7 +78,7 @@ function Sidebar() {
                     <InfoOutlinedIcon />
                     <CallIcon />
                 </div>
-            </div>
+            </div> */}
 
             <div className='sidebar-profile'>
                 <Avatar onClick={() => auth.signOut()} src={user.photo} />
@@ -88,12 +87,12 @@ function Sidebar() {
                     <p>#{user.uid.substring(0, 5)}</p>
                 </div>
 
-                <div className='sidebar-profileIcons'>
+                {/* <div className='sidebar-profileIcons'>
                     <MicIcon />
                     <HeadsetIcon />
                     <SettingsIcon />
 
-                </div>
+                </div> */}
             </div>
         </div>
     )

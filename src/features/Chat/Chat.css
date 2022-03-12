@@ -14,6 +14,7 @@
 .chat-input{
     color: lightgray;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
@@ -26,7 +27,7 @@
     padding: 15px;
     background: transparent;
     border: none;
-    width: 100%;
+    width: 89%;
     outline-width: 0;
     color: white;
     font-size: large;
@@ -36,7 +37,9 @@
     flex: 1;
 }
 .chat-inputButton{
-    display: none;
+   border-radius: 50%;
+   border: none;
+
 }
 .chat-inputIcons > .MuiSvgIcon-root{
     padding: 5px;

@@ -3,14 +3,19 @@
     background-color: #40464b;
 }
 .sidebarChannel > h4 {
+    height: 20px;
     display: flex;
     padding-left: 15px;
     align-items: center;
     background-color: #2f3135;
-    color: grey;
+    color: white;
     cursor: pointer;
 }
-.sidebarChannel-hash {
-    font-size: 30px;
-    padding: 8px;
+
+.sidebarChannel-img{
+    width: 20px;
+    padding-right: 8px;
+}
+.sidebarChannel{
+    padding: 4px;
 }

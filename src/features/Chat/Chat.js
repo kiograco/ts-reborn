@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './Chat.css';
 import { ChatHeader } from './ChatHeader';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
-import GifIcon from '@material-ui/icons/Gif';
-import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import Message from '../Message/Message';
 import { useSelector } from 'react-redux';
 import { selectChannelId, selectChannelName , selectChannels} from '../../Service/AppSlice';
 import { selectUser } from '../../Service/UserSlice';
 import db from '../../firebase/firebase';
 import firebase from 'firebase';
+import logo from '../../img/ghost.png';
+import { Send } from '@material-ui/icons';
 
 export const Chat = () => {
   const channelId = useSelector(selectChannelId);
@@ -62,7 +60,6 @@ export const Chat = () => {
 
       </div>
       <div className='chat-input'>
-        <AddCircleIcon fontSize='large' />
         <form>
           <input
             value={input}
@@ -76,22 +73,18 @@ export const Chat = () => {
           type="submit"
           onClick={sendMessage}
           >
-            Send Message
+            <Send
+              fontSize='large' 
+              color='primary'
+              
+            />
           </button>
         </form>
-
-        <div className='chat-inputIcons'>
-          <CardGiftcardIcon fontSize="large" />
-          <GifIcon fontSize="large" />
-          <EmojiEmotionsIcon fontSize="large" />
-        </div>
       </div>
       </>:
       <div className='div-alerts'>
-      <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pok%C3%A9mon_Ghost_Type_Icon.svg/1024px-Pok%C3%A9mon_Ghost_Type_Icon.svg.png'
-              alt='logo'
-        />
-      <h1 className='channels-alerts'>{channels.length?"Escolha um Canal":"Crie um Canal para começar a conversar :D"}</h1>
+      <img src={logo} alt='logo'/>
+      <h1 className='channels-alerts'>{channels.length?"Choose a channel":"Create a Channel to Start Chatting :D"}</h1>
       </div>}
     </div>
   )

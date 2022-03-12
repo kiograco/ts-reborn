@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setChannelInfo } from '../../Service/AppSlice';
 import "./SidebarChannel.css";
+import Imag from '../../img/normal.png';
 
 
 export default function SidebarChannel({id, channelName}) {
@@ -15,7 +16,8 @@ export default function SidebarChannel({id, channelName}) {
     
     )}>
       <h4>
-        <span className='sidebarChannel-hash'>#
+        <span className='sidebarChannel-hash'>
+          <img className='sidebarChannel-img' src={Imag}/>
         </span>{channelName}
         </h4>    
     </div>
