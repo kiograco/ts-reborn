@@ -41,3 +41,19 @@
 .chat-inputIcons > .MuiSvgIcon-root{
     padding: 5px;
 }
+.channels-alerts{
+    color: aliceblue;
+    text-align: center;
+    padding: 10px;
+}
+img{
+    object-fit: contain;
+    height: 150px;
+}
+.div-alerts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}

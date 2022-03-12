@@ -1,6 +1,6 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
-import { auth, provider } from '../firebase/firebase';
+import { auth, provider } from '../../firebase/firebase';
 
 
 import './Login.css';
@@ -15,9 +15,9 @@ function Login() {
     <div className='login'>
       <div className='login-logo'>
         <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pok%C3%A9mon_Ghost_Type_Icon.svg/1024px-Pok%C3%A9mon_Ghost_Type_Icon.svg.png'
-              alt=''
+              alt='logo'
         />
-
+      <h1>Ts-Reborn</h1>
       </div>
 
       <Button onClick={signIn}>Sign In</Button>
