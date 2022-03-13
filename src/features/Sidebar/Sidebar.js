@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import AddIcon from "@material-ui/icons/Add";
 import "./Sidebar.css";
 import SidebarChannel from '../SidebarChannel/SidebarChannel';
@@ -12,16 +12,16 @@ import SettingsIcon from '@material-ui/icons/Settings'
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../Service/UserSlice'
 import db, { auth } from '../../firebase/firebase';
-import {selectChannels , setChannels} from '../../Service/AppSlice';
+import { selectChannels, setChannels } from '../../Service/AppSlice';
 import logo from '../../img/ghost.png';
 
 function Sidebar() {
     const user = useSelector(selectUser);
     const channels = useSelector(selectChannels);
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
-        db.collection('channels').orderBy('channelName','asc').onSnapshot((snapshot) =>
+        db.collection('channels').orderBy('channelName', 'asc').onSnapshot((snapshot) =>
             dispatch(setChannels(
                 snapshot.docs.map(doc => ({
                     id: doc.id,
@@ -44,26 +44,27 @@ function Sidebar() {
         <div className='sidebar'>
             <div className='sidebar-top'>
                 <h2>ts reborn</h2>
-                <img className='logo-sidebar' src={logo}/>
+                <img className='logo-sidebar' src={logo} />
             </div>
-            
+
             <div className='sidebar-channels'>
                 <div className='sidebar-channelsHeader'>
                     <div className='siderbar-header'>
                         <h4>channels</h4>
                     </div>
 
-                    <AddIcon onClick={()=>handleAddChannel()} className='sidebar-addChannel' />
+                    <AddIcon onClick={() => handleAddChannel()} className='sidebar-addChannel' />
                 </div>
-            </div>
-            <div className='sidebar-addChannel'>
+                <div className='sidebar-addChannel'>
                     {channels.map(({ id, channel }) => (
-                        <SidebarChannel 
-                        key={id} 
-                        id={id} 
-                        channelName={channel.channelName} />
+                        <SidebarChannel
+                            key={id}
+                            id={id}
+                            channelName={channel.channelName} />
                     ))}
                 </div>
+            </div>
+
 
             {/* <div className='sidebar-voice'>
                 <SignalCellularAltIcon
