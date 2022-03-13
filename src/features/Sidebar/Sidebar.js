@@ -2,18 +2,13 @@ import React, { useEffect } from 'react';
 import AddIcon from "@material-ui/icons/Add";
 import "./Sidebar.css";
 import SidebarChannel from '../SidebarChannel/SidebarChannel';
-import SignalCellularAltIcon from "@material-ui/icons/SignalCellularAlt";
-import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined"
-import CallIcon from "@material-ui/icons/Call"
 import { Avatar } from '@material-ui/core';
-import MicIcon from '@material-ui/icons/Mic'
-import HeadsetIcon from '@material-ui/icons/Headset'
-import SettingsIcon from '@material-ui/icons/Settings'
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../Service/UserSlice'
 import db, { auth } from '../../firebase/firebase';
 import { selectChannels, setChannels } from '../../Service/AppSlice';
 import logo from '../../img/ghost.png';
+import exit from '../../img/exit.png';
 
 function Sidebar() {
     const user = useSelector(selectUser);
@@ -52,7 +47,6 @@ function Sidebar() {
                     <div className='siderbar-header'>
                         <h4>channels</h4>
                     </div>
-
                     <AddIcon onClick={() => handleAddChannel()} className='sidebar-addChannel' />
                 </div>
                 <div className='sidebar-addChannel'>
@@ -64,39 +58,16 @@ function Sidebar() {
                     ))}
                 </div>
             </div>
-
-
-            {/* <div className='sidebar-voice'>
-                <SignalCellularAltIcon
-                    className="sidebar-voiceIcon"
-                    fontSize="large"
-                />
-                <div className='sidebar-voiceInfo'>
-                    <h3>Voice Connected</h3>
-                    <p>Stream</p>
-                </div>
-                <div className='sidebar-voiceIcons'>
-                    <InfoOutlinedIcon />
-                    <CallIcon />
-                </div>
-            </div> */}
-
             <div className='sidebar-profile'>
-                <Avatar onClick={() => auth.signOut()} src={user.photo} />
+                <Avatar src={user.photo} />
                 <div className='sidebar-profileInfo'>
                     <h3>{user.displayName}</h3>
                     <p>#{user.uid.substring(0, 5)}</p>
                 </div>
-
-                {/* <div className='sidebar-profileIcons'>
-                    <MicIcon />
-                    <HeadsetIcon />
-                    <SettingsIcon />
-
-                </div> */}
+                <button className='button-exit' onClick={() => { auth.signOut(); document.location.reload(true) }} ><img className='logout' src={exit} /></button>
             </div>
         </div>
     )
-}
+};
 
 export default Sidebar

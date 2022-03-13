@@ -6,7 +6,6 @@ import './Login.css';
 
 function Login() {
   const signIn = () => {
-    // google login
     auth.signInWithPopup(provider).catch((error) => alert(error.message));
   };
   return ( 
@@ -18,6 +17,5 @@ function Login() {
       <Button onClick={signIn}>Sign In</Button>
     </div>
   )
-}
-
+};
 export default Login

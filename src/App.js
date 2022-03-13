@@ -11,6 +11,5 @@ function App() {
       {user ? <Home/> : <Login />}  
     </div>
   );
-}
-
+};
 export default App;

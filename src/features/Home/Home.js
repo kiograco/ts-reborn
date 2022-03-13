@@ -8,6 +8,5 @@ export const Home = () => {
       <Sidebar />
       <Chat />
     </React.Fragment>
-
   )
-}
+};

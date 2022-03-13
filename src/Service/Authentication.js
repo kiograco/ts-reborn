@@ -8,7 +8,6 @@ export const Authentication = () => {
     const dispatch = useDispatch();
     const user = useSelector(selectUser);
 
-
     useEffect(() => {
         auth.onAuthStateChanged((authUser) => {
             if (authUser) {
@@ -22,11 +21,8 @@ export const Authentication = () => {
                 );
             } else {
                 dispatch(logout());
-
             }
         })
-    }, [dispatch]);
-
+    }, [user]);
     return {user}       
-    
-}
+};

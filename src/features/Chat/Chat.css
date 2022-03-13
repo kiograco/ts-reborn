@@ -39,10 +39,6 @@
 .chat-inputButton{
    border-radius: 50%;
    border: none;
-
-}
-.chat-inputIcons > .MuiSvgIcon-root{
-    padding: 5px;
 }
 .channels-alerts{
     color: aliceblue;

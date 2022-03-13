@@ -64,3 +64,11 @@
 .sidebar-profileInfo >h3{
     color: white;
 }
+.logout{
+    width: 30px;
+    height: 20px;
+}
+.button-exit{
+    background: none;
+    border: none;
+}
