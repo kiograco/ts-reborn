@@ -1,45 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Desafio - Front-end
+## _Hybri_
 
-## Available Scripts
+O desafio consiste na criação de um aplicativo de troca de mensagens utilizando redux e o firebase.
 
-In the project directory, you can run:
+## Telas
 
-### `npm start`
+- Uma tela de login utilizando o google ; e
+- Uma tela de criação de canais e envio de mensagens.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [ReactJS] - criação de interfaces para o usuário.
+- [Material-ui] - material design desenvolvida pela Google.
+- [React-router-dom] - criação de rotas.
+- [firebase] - banco de dados google.
 
-### `npm test`
+## Instalação
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+git clone "https://github.com/kiograco/ts-reborn.git"
+cd ts-reborn
+npm install
+npm start
+```
 
-### `npm run build`
+## O que eu poderia melhorar
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Melhor utilização do redux. 
+2. Por esquecimento, não consegui fazer o historico de commits ideal para análise.
+3. Por falta de tempo ou falta de experiencia creio que o codigo poderia ser mais componentizado e mais curto.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Tempo gasto no projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Somando todos os dias dedicados a realização da presente entrega houve um valor de aproximadamente: **16 Horas**.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# ts-reborn
+## Desafios encontrados
+- A utilização do redux ainda não esta totalmente clara para mim, mas com este projeto me abriu os olhos para melhorar nesse aspecto.
+- A falta de uma orientação visual (projeto no figma feito por um designer) me deixou sem uma base para onde ir no css.
+- Vi possibilidades interessantes de implementação mas ainda me falta bagagem e tempo para entrar oque visualizei, mas vou acabar fazendo por curiosidade.
