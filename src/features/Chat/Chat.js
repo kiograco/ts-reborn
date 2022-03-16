@@ -31,15 +31,22 @@ export const Chat = () => {
 
   }, [channelId]);
 
-  const sendMessage = (e) => {
-    e.preventDefault();
+  const onChangeInput = (event) => {
+    if(event.target.value != " "){
+      setInput(event.target.value)
+    }
+  }
 
-    db.collection('channels').doc(channelId).collection('messages').add({
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      message: input,
-      user: user,
-    });
-    setInput("");
+  const sendMessage = (event) => {
+    console.log(input)
+    event.preventDefault();
+      if (input != "") {
+      db.collection('channels').doc(channelId).collection('messages').add({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        message: input,
+        user: user,
+      });}
+      setInput("");
   }
   return (
     <div className='chat'>
@@ -49,7 +56,7 @@ export const Chat = () => {
           <div className='chat-messages'>
             {messages.map((message) =>
               <Message
-                key={message}
+                key={message.id}
                 timestamp={message.timestamp}
                 message={message.message}
                 user={message.user}
@@ -61,7 +68,7 @@ export const Chat = () => {
               <input
                 value={input}
                 disabled={!channelId}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(event) => onChangeInput(event)}
                 placeholder={`${channelName ? channelName : ""}`}
               />
               <button

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddIcon from "@material-ui/icons/Add";
 import "./Sidebar.css";
 import SidebarChannel from '../SidebarChannel/SidebarChannel';
@@ -25,15 +25,17 @@ function Sidebar() {
             ))
         );
     }, []);
-
+   
     const handleAddChannel = () => {
         const channelName = prompt("Enter a new channel name");
+        
         if (channelName) {
             db.collection("channels").add({
                 channelName: channelName,
             })
         }
     };
+    
 
     return (
         <div className='sidebar'>
@@ -48,13 +50,16 @@ function Sidebar() {
                         <h4>channels</h4>
                     </div>
                     <AddIcon onClick={() => handleAddChannel()} className='sidebar-addChannel' />
+                    
                 </div>
                 <div className='sidebar-addChannel'>
-                    {channels.map(({ id, channel }) => (
+                    {channels.map(({ id, channel}) => (
                         <SidebarChannel
                             key={id}
                             id={id}
-                            channelName={channel.channelName} />
+                            channelName={channel.channelName}
+                           />
+
                     ))}
                 </div>
             </div>

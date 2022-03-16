@@ -1,8 +1,11 @@
 import { Avatar } from '@material-ui/core';
 import React from 'react';
 import './Message.css';
+import db from '../../firebase/firebase';
+
 
 function Message({ timestamp, user, message }) {
+
     return (
         <div className='message'>
             <Avatar src={user.photo} />

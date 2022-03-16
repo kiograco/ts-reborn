@@ -1,13 +1,13 @@
-.sidebarChannel:hover > h4 {
+.sidebarChannel:hover {
     color:white;
     background-color: #40464b;
+    
 }
 .sidebarChannel > h4 {
     height: 20px;
     display: flex;
     padding-left: 15px;
     align-items: center;
-    background-color: #2f3135;
     color: white;
     cursor: pointer;
 }
@@ -19,4 +19,20 @@
 }
 .sidebarChannel{
     padding: 4px;
+}
+.sidebarChannel{
+    display: flex;
+    justify-content: space-between;
+}
+.siderbarChannel-button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+}
+.sidebarChannel:hover > button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: inline;
 }
