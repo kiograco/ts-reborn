@@ -25,17 +25,17 @@ function Sidebar() {
             ))
         );
     }, []);
-   
+
     const handleAddChannel = () => {
         const channelName = prompt("Enter a new channel name");
-        
-        if (channelName) {
-            db.collection("channels").add({
-                channelName: channelName,
-            })
-        }
+            const channelFinder = channels.some(channel => channel.channel.channelName == channelName)
+            if (!channelFinder) {
+                db.collection("channels").add({
+                    channelName: channelName,
+                })
+            }
     };
-    
+
 
     return (
         <div className='sidebar'>
@@ -50,15 +50,15 @@ function Sidebar() {
                         <h4>channels</h4>
                     </div>
                     <AddIcon onClick={() => handleAddChannel()} className='sidebar-addChannel' />
-                    
+
                 </div>
                 <div className='sidebar-addChannel'>
-                    {channels.map(({ id, channel}) => (
+                    {channels.map(({ id, channel }) => (
                         <SidebarChannel
                             key={id}
                             id={id}
                             channelName={channel.channelName}
-                           />
+                        />
 
                     ))}
                 </div>
